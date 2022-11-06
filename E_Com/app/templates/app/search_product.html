@@ -1,0 +1,30 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Buy Now{% endblock title %}
+{% block main-content %}
+
+<center>
+{% if searched %}
+	<h3>You Search For {{ searched }}</h3><br>
+
+	{% for product in products %}
+		<a href="{% url 'topwears' %}">
+		{{ product }} - {{ product.category }}</a><br>
+	{% endfor %}
+
+	{% for product in products %}
+		<a href="{% url 'bottomwears' %}">
+		{{ product }} - {{ product.category }}</a><br>
+	{% endfor %}
+
+	{% for product in products %}
+		<a href="{% url 'mobile' %}">
+		{{ product }} - {{ product.category }}</a><br>
+	{% endfor %}
+
+{% else %}
+	<h4>Hey ! You Forgot To Sheacrh For A Product...</h4>
+{% endif %}
+</center>
+
+{% endblock main-content %}
